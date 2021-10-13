@@ -1,0 +1,18 @@
+﻿version: '3'
+services:
+  ms-sql-server:
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Pa55w0rd2021"
+      MSSQL_PID: Express
+    ports:
+      - "1434:1433"
+  dea-webapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    build: .
+    ports: 
+      - "8090:80"
+    depends_on:
+      - ms-sql-server
