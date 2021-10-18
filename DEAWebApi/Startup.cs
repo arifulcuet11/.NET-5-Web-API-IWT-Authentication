@@ -61,7 +61,6 @@ namespace DEAWebApi
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DEAWebApi v1"));
             }
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
